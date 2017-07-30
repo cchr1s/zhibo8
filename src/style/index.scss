@@ -1,0 +1,326 @@
+$bgcolor : #fafafa;
+$header_bg_color: #efefef;
+$header_height: 2.4rem;
+$color: #222;
+$border_color: #ededee;
+$news_height: 3rem;
+.global{
+	background-color: $bgcolor;
+	line-height: 1;
+	>header {
+		display: flex;
+		height: $header_height;
+		background-color: #309efd;
+		.logo {
+			margin-left: 0.5rem;
+			position: absolute;
+			margin-top: 0.2rem;			
+			span,.islogin{
+				background: url('../../static/img/login.png') no-repeat;
+				width: 2rem;
+				height: 2rem;
+				display: inline-block;
+				border-radius: 50%;
+				background-position-y: -2px;
+				
+			}
+			.islogin{
+				background: url('../../static/img/logined.png') no-repeat;
+			}
+			i{
+				font: normal 0.75rem/2rem 'microsoft yahei';
+				color: #eee;
+				vertical-align: super;
+			}
+		}
+		.sub{
+			margin: 0 auto;
+			>h2{
+				display: inline-block;
+				color: #f9f9f9;
+				font: normal 1.1rem/2.4rem 'microsoft yahei';
+			}
+			span{
+				position: absolute;
+				padding-left: .5rem;
+				color: #f9f9f9;
+				font: 1rem/2.6rem 'microsoft yahei';
+				transform: rotate(-90deg);
+				top: 0.15rem;
+			}
+			.up{
+				transform: rotate(90deg);
+				top: -0.34rem;
+			}
+		}
+	}
+	.mask{
+		position: fixed;
+		top: 0;
+		left:0;
+		right: 0;
+		bottom: 0;
+		background: transparent;
+		z-index: 1;
+		.choose{
+			z-index: 10;
+			position: absolute;
+			width: 8rem;
+			height: 7.5rem;
+			background-color: rgba(0,0,0,0.65);
+			border-radius: 0.3rem;
+			left: 50%;
+			top: 2.65rem;
+			transform: translateX(-50%);
+			ul{
+				list-style: none;
+				position: relative;
+				li{
+					text-align: center;
+					color: #fff;
+					font: 0.8rem/2.5rem 'microsoft yahei';
+					border-bottom: 1px solid #3b3e3d;
+					margin: 0 0.4rem;
+					&:nth-of-type(3){
+						border-bottom: none;
+					}
+					.correct{
+						position: absolute;
+						padding-left: 0.35rem;
+						transform: rotate(10deg);
+					}
+				}
+				.active{
+					color: #309efd;
+				}
+			}
+			ul:before{
+				position: absolute;
+				content: "";
+				width: 0;
+				height: 0;
+				left:50%;
+				top: -1.2rem;
+				transform: translateX(-50%);
+				border-left: 0.6rem solid transparent;
+			    border-top: 0.6rem solid transparent;
+				border-right: 0.6rem solid transparent;
+				border-bottom: 0.6rem solid rgba(0,0,0,0.65);
+			}
+		}
+	}
+	/* .cover{
+		position: fixed;
+		top: 0;
+		left:0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0,0,0,0.65);
+		z-index: 1;
+	}	 */
+	.nav{
+		border-bottom: 1px solid #ededee;
+		ul{
+			display: flex;
+			list-style: none;
+			justify-content: space-around;
+			>li{
+				width: 33.3%;
+				text-align: center;
+				color: $color;
+				height: $header_height;
+				font: 0.9rem/2.4rem 'microsoft yahei';
+				margin: 0 0.5rem;
+			}
+			.active{
+				color: #309efd;
+				border-bottom: 0.15rem solid #309efd;
+			}
+		}		
+	}
+	.headline{
+		>header{
+			background-color: $header_bg_color;
+			h3{
+				color: $color;
+				height: 1.8rem;
+				font: normal 0.82rem/1.8rem 'microsoft yahei';
+				border-bottom: 1px solid #ededee;
+				padding-left: 1.5rem;
+			}	
+		}
+		.content{
+			ul{
+				list-style: none;
+			}
+			.news_lite{
+				border-bottom: 1px solid #ededee;				
+				a{
+					width: 100%;
+					height: $news_height;
+					display: inline-block;
+					position: relative;
+					text-decoration: none;
+				}
+				img{
+					width: 3rem;
+					height: 2rem;
+					float: left;
+					margin-top: 0.5rem;
+					vertical-align: middle;
+					margin-right: 0.4rem;
+					padding-left: 0.2rem;
+				}
+				div{
+					line-height: $news_height;
+					font-size: 0.85rem;
+					color: $color;
+					overflow: hidden;
+				}
+			}
+		}
+	}
+	.commonnews{
+		.content{
+			.news_lite{
+				border-bottom: 1px solid #ededee;				
+				a{
+					width: 100%;
+					height: 4rem;
+					display: inline-block;
+					position: relative;
+					text-decoration: none;
+					position: relative;
+				}
+				img{
+					width: 4rem;
+					height: 3rem;
+					float: left;
+					margin-top: 0.5rem;
+					vertical-align: middle;
+					margin-right: 0.4rem;
+					padding-left: 0.2rem;
+				}
+				div{
+					line-height: 1rem;
+					font-size: 0.8rem;
+					color: $color;
+					overflow: hidden;
+					margin-top: 0.5rem;
+					&:nth-of-type(2){
+						font-size: 0.6rem;
+						color: #999;
+						position: absolute;
+						left: 4.5rem;
+						margin-top: 0;
+						top: 2.7rem;
+					}
+				}
+			}
+		}
+	}
+	.saishi{
+		width: 100%;
+		overflow: hidden;
+		.head{
+			height: 1.55rem;
+			background: $header_bg_color;
+			h2{
+				font: normal 0.85rem/1.55rem 'microsoft yahei';
+				border-bottom: 1px solid #ededee;
+				padding-left: 1rem;
+			}
+		}
+		.content{
+			width: 100%;
+			overflow: hidden;
+			.list{
+				ul{
+					width: 100%;
+				}
+				display: flex;
+				list-style: none;
+				justify-content: space-around;
+				padding: 0;
+				margin: 0;
+				overflow: hidden;
+				.lite{
+					border-bottom: 1px solid #ddd;
+					box-shadow : 0 1px 1px #fff;
+					font-size: 0;
+					a{
+						display: block;
+						color: $color;
+						text-decoration: none;
+						table{
+							width: 100%;
+							padding: 0;
+							margin:0;
+							/* word-break: break-all; */
+							border-collapse: collapse;
+							tbody{
+								vertical-align: middle;
+								font-size: 0.7rem;
+								.s_time{
+									width: 15%;
+									padding-left: 0.3rem;
+									text-align: left;
+								}
+								.s_home{
+									width: 23%;
+									text-align: center;
+									padding: 0.25rem;
+									>div{
+										img{
+											width: 2rem;
+											height: 2rem;
+											margin-bottom:0.1rem;
+										}
+									}
+								}
+								td:nth-child(3){
+									width: 23%;
+									.s_name{
+										text-align: center;
+										padding-top: .25rem;
+									}
+									.s_keyword{
+										text-align: center;
+										overflow: hidden;
+										color: #888;
+										font-size: 0.65rem;
+										margin-top: 0.25rem;
+										line-height: 0.75rem;
+										padding-bottom: 0.25rem;
+									}
+								}
+								
+								.s_road{
+									width: 23%;
+									text-align: center;
+									padding: 0.25rem;
+									>div{
+										img{
+											width: 2rem;
+											height: 2rem;
+											margin-bottom:0.1rem;
+										}
+									}
+								}
+								.remind{
+									width:2.5rem;
+									text-align: center;
+									color: #e04e4c;
+									img{
+										width: 1.2rem;
+										height: 1.2rem;
+									}
+								}
+							}	
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,75 @@
+$header_height: 2.4rem;
+.global{
+	>header {
+		display: flex;
+		height: $header_height;
+		background-color: #309efd;
+		margin-bottom: 0.5rem;
+		.back {
+			margin-left: 0.5rem;
+			position: absolute;		
+			>span{
+				position: absolute;
+				padding-left: .2rem;
+				color: #f9f9f9;
+				font: 1rem/2.4rem 'microsoft yahei';
+				transform: rotate(0deg);
+				width: 1.5rem;
+			}
+		}
+		.sub{
+			margin: 0 auto;
+			>h2{
+				display: inline-block;
+				color: #f9f9f9;
+				font: normal 1rem/2.4rem 'microsoft yahei';
+			}
+			
+		}
+	}				
+}
+.reg{
+	div{
+		display: flex;
+		border-bottom: 1px solid #aaa;
+		label{
+			width: 5.5rem;
+			font: 0.9rem/2.2rem 'microsoft yahei';
+			padding-left: 0.6rem;
+		}
+		input {
+			width: 100%;
+			font: 0.9rem/2.2rem 'microsoft yahei';
+			color: #333;
+			border: none;
+		}
+		input::-webkit-input-placeholder {
+			color: #999;
+			font: 0.8rem/2.2rem 'microsoft yahei';
+		}
+		input:-moz-placeholder { // Firefox4-18
+			color: #999;
+			font: 0.8rem/2.2rem 'microsoft yahei';
+		}
+		input::-moz-placeholder { // Firefox19+
+			color: #999;
+			font: 0.8rem/2.2rem 'microsoft yahei';
+		}
+	}
+	button{
+		width: 90%;
+		font: 0.8rem/2.2rem 'microsoft yahei';
+		margin: .5rem auto;
+		display: block;
+		background: #ea4c4d;
+		border: none;
+		color: #f1f1f1;
+		border-radius: 0.3rem;
+	}
+	.agree{
+		color: #999;
+		font: 0.72rem/2.2rem 'microsoft yahei';
+		border: none;
+		padding-left: 1rem;
+	}
+}

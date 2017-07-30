@@ -1,0 +1,86 @@
+$header_height: 2.4rem;
+.global{
+	>header {
+		display: flex;
+		height: $header_height;
+		background-color: #309efd;
+		margin-bottom: 0.5rem;
+		.back {
+			margin-left: 0.5rem;
+			position: absolute;		
+			>span{
+				position: absolute;
+				padding-left: .2rem;
+				color: #f9f9f9;
+				font: 1rem/2.4rem 'microsoft yahei';
+				transform: rotate(0deg);
+				width: 1.5rem;
+			}
+		}
+		.sub{
+			margin: 0 auto;
+			>h2{
+				display: inline-block;
+				color: #f9f9f9;
+				font: normal 1rem/2.4rem 'microsoft yahei';
+			}
+			
+		}
+	}				
+}
+.login{
+	.phone,.password{
+		display: flex;
+		border-bottom: 1px solid #aaa;
+		span{
+			background: url('../../static/img/phone.png') no-repeat;
+			width: 1.5rem;
+			height:1.5rem;
+			margin: 0.6rem 0.5rem 0.4rem 0.8rem;
+			background-position: -6px -4px;
+		}
+		input {
+			width: 100%;
+			font: 0.9rem/2.2rem 'microsoft yahei';
+			color: #333;
+			border: none;
+		}
+		input::-webkit-input-placeholder {
+			color: #999;
+			font: 0.8rem/2.2rem 'microsoft yahei';
+		}
+		input:-moz-placeholder { // Firefox4-18
+			color: #999;
+			font: 0.8rem/2.2rem 'microsoft yahei';
+		}
+		input::-moz-placeholder { // Firefox19+
+			color: #999;
+			font: 0.8rem/2.2rem 'microsoft yahei';
+		}
+	}
+	.password{
+		span{
+			background: url('../../static/img/password.png') no-repeat;
+			background-position: -4px 0px;
+		}
+	}
+	button{
+		width: 90%;
+		font: 0.8rem/2.2rem 'microsoft yahei';
+		margin: 1.5rem auto;
+		display: block;
+		background: #ea4c4d;
+		border: none;
+		color: #f1f1f1;
+		border-radius: 0.3rem;
+	}
+
+}
+.register{
+	font-size: 0.85rem;
+	color: #309efd;
+	display: block;
+	width: 85%;
+	margin: 0 auto;
+	text-align: right;
+}

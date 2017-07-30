@@ -1,0 +1,616 @@
+$bgcolor : #fafafa;
+$header_bg_color: #ededed;
+$header_height: 2.4rem;
+$color: #f1f1f1;
+$homecolor: #e0455e;
+$visitcolor: #1681d4;
+.global{
+	background-color: $bgcolor;
+	line-height: 1;
+	>header {
+		display: flex;
+		height: $header_height;
+		background-color: #309efd;
+		.back {
+			margin-left: 0.5rem;
+			position: absolute;
+			>span{
+				position: absolute;
+				padding-left: .2rem;
+				color: #f9f9f9;
+				font: 1rem/2.4rem 'microsoft yahei';
+				transform: rotate(0deg);
+				width: 1.5rem;
+			}
+		}
+		.sub{
+			margin: 0 auto;
+			>h2{
+				display: inline-block;
+				color: #f9f9f9;
+				font: normal 1rem/2.4rem 'microsoft yahei';
+			}
+			
+		}
+	}
+	.title{
+		margin-top: 0.25rem;
+		display: flex;
+		justify-content: space-around;
+		.home{
+			padding-left: .5rem;
+			width: 33.33%;
+			img{
+				width: 2rem;
+				height: 2rem;
+				display: block;
+				margin: 0 auto;
+			}
+			.home_team{
+				font: normal 0.8rem/1rem 'microsoft yahei';
+				text-align: center;
+				margin-top: 0.2rem;
+				white-space: nowrap;
+			}
+			.support_home{
+				margin-top: 0.75rem;
+				display: flex;
+				span{
+					&:nth-of-type(1){
+						position: relative;
+						background-color: $homecolor;
+						display: inline-block;
+						width: 1.5rem;
+						height: 1.1rem;
+						font: normal 0.75rem/1.0rem 'microsoft yahei';
+						color: $color;
+						border-radius: 40% 0 0 40%;
+						text-align: center;
+						&:after{
+							content: '';
+							position: absolute;
+							width: 1.4rem;
+							height: 1.4rem;
+							/* border: 1px solid #000; */
+							border-radius: 50%;
+							background-color: #fff;
+							top: 0;
+							margin-top: -0.2rem;		
+						}
+					}
+					&:nth-of-type(2){
+						border-radius: 50%;
+						border: 2px solid $homecolor;
+						display: inline-block;
+						width: 1.4rem;
+						height: 1.4rem;
+						margin-top: -0.27rem;
+						margin-left: -0.4rem;
+						z-index:10; 
+						position: relative;
+						img{
+							position: absolute;
+							width: 0.95rem;
+							height: 0.9rem;
+							top: 45%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+							overflow:hidden;
+						} 
+
+					}
+					&:nth-of-type(3){
+						font: normal 0.8rem/1.1rem 'microsoft yahei';
+						margin-left: 0.2rem;
+					}
+				}
+			}
+		}
+		.score{
+			width: 33.33%;
+			margin-top: 0.65rem;
+			div{
+				text-align: center;
+				font: bold 0.96rem/1rem 'microsoft yahei';
+				white-space:nowrap;
+			}
+			.showTitle{
+				text-align: center;
+				font: normal 0.8rem/1rem 'microsoft yahei';
+				white-space:nowrap;
+				margin-left:-33.3%;
+				margin-right: -33.3%
+			}
+			.state{
+				font: normal 0.68rem/1rem 'microsoft yahei';
+				margin-top: 0.25rem;
+				color: #777;
+			}
+			.livevideo{
+				width: 5.4rem;
+				height: 1.8rem;
+				background-color: #73b4f8;
+				margin: 0.65rem auto 0;
+				border-radius: 0.2rem;
+				>span{
+					font: normal 0.8rem/1.8rem 'microsoft yahei';
+					text-align: center;
+					color: $color;
+				}
+			}
+		}
+		.visit{
+			padding-right: 0.5rem;
+			width: 33.33%;
+			img{
+				width: 2rem;
+				height: 2rem;
+				display: block;
+				margin: 0 auto;
+			}
+			.visit_team{
+				margin-top: 0.2rem;
+				font: normal 0.8rem/1rem 'microsoft yahei';
+				text-align: center;
+				white-space: nowrap;
+			}
+			.support_visit{
+				margin-top: 0.75rem;
+				display: flex;
+				justify-content: flex-end;
+				span{
+					&:nth-of-type(3){
+						position: relative;
+						background-color: $visitcolor;
+						display: inline-block;
+						width: 1.5rem;
+						height: 1.1rem;
+						font: normal 0.75rem/1.0rem 'microsoft yahei';
+						color: $color;
+						border-radius: 0 40% 40% 0;
+						text-align: center;
+						&:before{
+							content: '';
+							position: absolute;
+							width: 1.4rem;
+							height: 1.4rem;
+							/* border: 1px solid #000;  */
+							border-radius: 50%;
+							background-color: #fff;
+							top: 0;
+							left: -80%;
+							margin-top: -0.2rem;
+						}
+					}
+					&:nth-of-type(2){
+						border-radius: 50%;
+						border: 2px solid $visitcolor;
+						display: inline-block;
+						width: 1.4rem;
+						height: 1.4rem;
+						margin-top: -0.27rem;
+						margin-right: -0.25rem;
+						z-index:10; 
+						position: relative;
+						img{
+							position: absolute;
+							width: 0.95rem;
+							height: 0.9rem;
+							top: 14%;
+							left: 15%;
+							/* transform: translate(-50%, -50%); */
+							overflow:hidden;
+							transform: scaleX(-1);
+						} 
+
+					}
+					&:nth-of-type(1){
+						font: normal 0.8rem/1.1rem 'microsoft yahei';
+						margin-right: 0.2rem;
+					}
+				}	
+			}
+		}		
+	}
+	.rate{
+		width: 100%;
+		display: flex;
+		margin-top: 0.4rem;
+		span{
+			height: 0.13rem;
+			&:nth-of-type(1){
+				width:50%;
+				background-color: $homecolor;
+				border-radius: 0.5rem 0 0 0.5rem;
+			}
+			&:nth-of-type(2){
+				width:50%;
+				background-color: $visitcolor;
+			}
+		}
+	}
+	.content{
+		ul{
+			display: flex;
+			list-style: none;
+			overflow-x: auto;
+			li{
+				width: 20%;
+				font: normal 0.8rem/1.6rem 'microsoft yahei';
+				text-align: center; 
+				white-space:nowrap;
+			}
+			.isActive{
+				color: #2e9fff;
+				border-bottom: 0.16rem solid #2e9fff;
+			}
+		}
+		.live{
+			padding: 0.5rem 0 0 0.5rem;
+			position: relative; 
+			.liveitem{
+				margin-bottom: 0.6rem;
+			}
+			.host{
+				float: left;
+				color: #777;
+				text-align: center;
+				margin-right: 0.5rem;
+				margin-top: 0.15rem;
+				.hostname{
+					font: normal 0.8rem/1.0rem 'microsoft yahei';
+				}
+				.time{
+					font-size: 0.6rem;
+					line-height: 1.0rem;
+				}
+			}
+			.livecontent{
+				box-sizing: border-box;
+				overflow:hidden;
+				font-size: 0.85rem;
+				line-height: 1.6rem;
+				background-color: #d8ebff;
+				margin-right: 0.5rem;
+				border-radius: 0.3rem;
+				padding:0 0.3rem; 		 
+				&:before{
+					content: "";
+					position: absolute;
+					height: 0;
+					width: 0;
+					left: 2rem;
+					margin-top:0.3rem;
+					z-index:10;
+					border-right: 0.3rem solid #d8ebff;
+				    border-top: 0.3rem solid transparent;
+					border-left: 0.3rem solid transparent;
+					border-bottom: 0.3rem solid transparent;
+					overflow: auto; 
+				}
+			}
+			.nodata{
+			    text-align: center;
+			    position: absolute;
+			    width: 100%;
+			    margin-left: -0.5rem;
+				font: normal 0.8rem/1.6rem 'microsoft yahei';
+				margin-top: 7.5rem;
+			}
+		}
+	}
+	.shoufa{
+		margin: 0.5rem;
+		color: #333;
+		font: normal 0.8rem/1.6rem 'microsoft yahei';
+		display: flex;
+		.home{
+			width: 50%;
+			.team_name, .coach{
+				text-align: right;
+				padding-right: 0.8rem;
+				border-right: 1px solid #ccc;
+			}
+		}
+		.visit{
+			width: 50%;
+			.team_name, .coach{
+				padding-left: 0.8rem;
+			}
+			.position{
+				padding-left: 0.3rem;
+			}
+			tr{
+				border-right: none;
+			}
+		}
+		ul{
+			width: 100%;
+			display: block;
+			padding-left: 1px;
+			margin-top: 0.5rem;
+			li{
+				width: 100%;
+				font-size: 0.75rem;
+			}
+			table{
+				width: 100%;
+				border-collapse:collapse;
+				tbody{
+					width: 100%;
+					display: block;
+					tr{
+						display: flex;
+						padding: 0.5rem 0;
+						border-right: 1px solid #ccc;
+					}
+				}				
+			}
+			.position{
+				text-align: left;
+				width: 20%;
+			}
+			.playername{
+				text-align: left;
+				width: 60%;
+				padding-left: 0.5rem;
+			}
+			.playernumber{
+				text-align: right;
+				width: 20%;				
+				padding-right: 0.3rem;
+			}
+		}
+		.nodata{
+		    text-align: center;
+		    position: absolute;
+		    width: 100%;
+		    margin-left: -0.5rem;
+			font: normal 0.8rem/1.6rem 'microsoft yahei';
+			margin-top: 7.5rem;
+		}
+	}
+	.totalData{
+		.title{
+			display: flex;
+			justify-content: space-between;
+			margin-top:0;
+			background-color: #eee;
+			color: #333;
+			font: normal 0.8rem/1.6rem 'microsoft yahei';
+			padding: 0 1.2rem;
+		}
+		ul{
+			display: block;
+			margin: 0.5rem 0.8rem;
+			font-size: 0;
+			li{
+				width: 100%;
+				position: relative;
+				.data{
+					span{
+						position: absolute;
+						line-height: 0.8rem;
+						&:nth-of-type(1){
+							left: 0;
+							bottom: 1.05rem;
+						}
+						&:nth-of-type(2){
+							right: 0;
+							bottom: 1.05rem;
+						}
+					}
+				}
+				.cate{
+					font-size: 0.5rem;
+					line-height: 0.8rem;
+					color: #666;
+					span{
+						background: url('../../static/img/totalData.png') no-repeat;
+						display: inline-block;
+						width: 2.5rem;
+						height: 1.75rem;
+						margin: 0 auto;
+					}
+				}
+				.rate{
+					display: flex;
+					justify-content: space-between;
+					margin-top: 0;
+					.homerate, .visitrate{
+						background: #aaa;
+						height: 0.3rem;
+						margin-top: 0.15rem;
+						margin-bottom: 0.6rem;
+						width: 47.5%;
+					}
+					.homerate1, .visitrate1{
+						height: 0.3rem;
+					}
+					.homerate1{
+						background: $homecolor;
+						float: right;
+					}
+					.visitrate1{
+						background: $visitcolor;
+						float: left;						
+					}
+				}
+				
+			}
+		}
+		table{
+			margin: 0 auto;
+			border-collapse: collapse;
+			width: 99%;
+			font: 0.61rem/1.6rem 'microsoft yahei';
+			color: #333;
+			text-align: center;
+			td{
+				border: 1px solid #bbb;
+				width: 33%;
+			}
+			&:nth-of-type(2){
+				margin-top: 0.5rem;
+				td{
+					width: 16.6%;
+					line-height: 1.3rem;
+				}
+			}
+		}
+		.nodata{
+		    text-align: center;
+		    position: absolute;
+		    width: 100%;
+			font: normal 0.8rem/1.6rem 'microsoft yahei';
+			margin-top: 7.5rem;
+		}
+	}
+	.comment{
+		border-top: 1px solid #ddd;
+		margin-top: -1px;
+		>h4{
+			height: 1.4rem;
+			background: $header_bg_color;
+			font: normal 0.7rem/1.4rem 'microsoft yahei';
+			padding-left: 1rem;
+		}
+		>h3{
+			font: normal 1rem/1.4rem 'microsoft yahei';
+			margin-top: 1.5rem;
+			text-align: center;
+		}
+		.list{
+			border-bottom: 1px solid #ddd;
+			padding: 0.5rem;
+			>img{
+				width: 2.1rem;
+				height: 2.1rem;
+				border-radius: 50%;
+				float: left;
+				margin-right: .6rem;
+			}
+			.zan{
+					position: absolute;
+					right: 1rem;
+					color: #999;
+					font-size: 0;
+					img{
+						display:inline-block;
+						width: 0.95rem;
+						height:0.9rem;
+						margin-right:0.2rem;
+						vertical-align: top;
+						opacity: 0.5;
+						&:nth-of-type(2){
+							transform: rotate(180deg);
+							transform: scaleY(-1)
+						}
+					}
+					span{
+						display: inline-block;
+						height: 1rem;
+						font-size: 0.65rem;
+						line-height: 1rem;
+						&:nth-of-type(1){
+							padding-right:0.8rem;
+						}	
+					}
+				}
+			.detail{
+				overflow: hidden;				
+				.username{
+					font: normal 0.8rem/1.2rem 'microsoft yahei';
+					color: #05b0f8;
+				}
+				.time{
+					font: normal 0.6rem/1rem 'microsoft yahei';
+					color: #999;
+					overflow: hidden;
+				}
+				.info{
+					font: normal 0.75rem/1.2rem 'microsoft yahei';
+					text-align:justify;
+					padding-right:0.5rem;					
+				}
+				
+			}
+			
+		}
+	}
+	.gallery{
+		.nodata{
+		    text-align: center;
+		    position: absolute;
+		    width: 100%;
+			font: normal 0.8rem/1.6rem 'microsoft yahei';
+			margin-top: 7.5rem;
+		}
+		ul{
+			display: block;
+			border-top: 1px solid #e2e2e2;
+			background: #f2f2f2;
+			li{
+				//display: block;
+				width: 92.7%;
+				margin-left: 0.9rem;
+				padding-left: 0.4rem;
+				text-align: left;
+				border-left: 1px solid #ddd;			
+				>div{
+					display: block;
+					width: 88%;
+					margin: 0;
+					font-size: 0.76rem;
+					white-space: normal;
+					position: relative;
+					&:after{
+						content: '';
+						position: absolute;
+						width: 0.46rem;
+						height:0.46rem;
+						border-radius: 50%;
+						border: 1px solid #ddd;
+						left: -0.7rem;
+						background: #fefefe;
+						top: 0.58rem;
+					}
+				}
+				.img{
+					position: relative;
+					width: 100%;
+					&:after{
+						content:'';
+						width: 0;
+						height:0;
+					}
+					img{
+						width: 94%;
+					}
+					span{
+						position: absolute;
+						left: 47%;
+						top: 50%;
+						color: #fff;
+						display: inline-block;
+						width: 4rem;
+						height: 1.6rem;
+						background: rgba(0,0,0,0.45);
+						transform: translate(-50%, -50%);
+						border-radius: 1.6rem;
+						text-align: center;
+						font-size: 0.8rem;
+						line-height: 1.6rem;
+						i{
+							font-size: 1.5rem;
+							font-style: normal;
+							vertical-align: middle;
+						    display: inline-block;
+						    margin-bottom: 0.25rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}

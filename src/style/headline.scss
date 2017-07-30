@@ -1,0 +1,130 @@
+$bgcolor : #fafafa;
+$header_bg_color: #ededed;
+$header_height: 2.4rem;
+$color: #000;
+$border_color: #ededee;
+.global{
+	background-color: $bgcolor;
+	line-height: 1;
+	>header {
+		display: flex;
+		height: $header_height;
+		background-color: #309efd;
+		.back {
+			margin-left: 0.5rem;
+			position: absolute;		
+			>span{
+				position: absolute;
+				padding-left: .2rem;
+				color: #f9f9f9;
+				font: 1rem/2.4rem 'microsoft yahei';
+				transform: rotate(0deg);
+				width: 1.5rem;
+			}
+		}
+		.sub{
+			margin: 0 auto;
+			>h2{
+				display: inline-block;
+				color: #f9f9f9;
+				font: normal 1.1rem/2.4rem 'microsoft yahei';
+			}
+			
+		}
+	}
+	.content{
+		padding: 0 0.75rem 0 0.75rem;
+		>h2{
+			font: .9rem/1.4rem 'microsoft yahei';
+			margin-top: 0.5rem;
+		}
+		>h4{
+			font: .5rem/1.4rem 'microsoft yahei';
+			color: #a8a8a8;
+		}
+		img{
+			width: 100%;
+			margin-top: 1rem;
+		}
+		p{
+			font: .75rem/1.4rem 'microsoft yahei';
+			color: #3d3d3d;
+			text-indent: 2em;
+			text-align: justify;
+			margin-top: 1rem;
+		}	
+	}
+	.comment{
+		>h4{
+			height: 1.4rem;
+			background: $header_bg_color;
+			font: normal 0.7rem/1.4rem 'microsoft yahei';
+			padding-left: 1rem;
+			margin-top: 1.5rem;
+		}
+		>h3{
+			font: normal 1rem/1.4rem 'microsoft yahei';
+			margin-top: 1.5rem;
+			text-align: center;
+		}
+		.list{
+			border-bottom: 1px solid #ededee;
+			padding: 0.5rem;
+			>img{
+				width: 2.1rem;
+				height: 2.1rem;
+				border-radius: 50%;
+				float: left;
+				margin-right: .6rem;
+			}
+			.zan{
+					position: absolute;
+					right: 1rem;
+					color: #999;
+					font-size: 0;
+					img{
+						display:inline-block;
+						width: 0.95rem;
+						height:0.9rem;
+						margin-right:0.2rem;
+						vertical-align: top;
+						opacity: 0.5;
+						&:nth-of-type(2){
+							transform: rotate(180deg);
+							transform: scaleY(-1)
+						}
+					}
+					span{
+						display: inline-block;
+						height: 1rem;
+						font-size: 0.65rem;
+						line-height: 1rem;
+						&:nth-of-type(1){
+							padding-right:0.8rem;
+						}	
+					}
+					
+
+				}
+			.detail{
+				overflow: hidden;				
+				.username{
+					font: normal 0.8rem/1.2rem 'microsoft yahei';
+					color: #05b0f8;
+				}
+				.time{
+					font: normal 0.6rem/1rem 'microsoft yahei';
+					color: #999;
+					overflow: hidden;
+				}
+				.info{
+					font: normal 0.75rem/1.2rem 'microsoft yahei';
+					text-align:justify;
+					padding-right:0.5rem;					
+				}
+				
+			}
+			
+		}
+	}
+}

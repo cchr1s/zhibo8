@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <meta name="referrer" content="never">
-    <title>zhibo8</title>
-  </head>
-  <body>
-    <div id="app-box"></div>
-    <!-- built files will be auto injected -->
-    <script>
-      (function (doc, win) {
-        var docEl = doc.documentElement,
-          resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-          recalc = function () {
-            var clientWidth = docEl.clientWidth;
-                if (!clientWidth) return;
-                fonSize = 20 * (clientWidth / 375);
-                docEl.style.fontSize = 20 * (clientWidth / 375) + 'px';
-            };
-        if (!doc.addEventListener) return;
-        doc.addEventListener('DOMContentLoaded', recalc, false);
-        if (docEl.clientWidth > 750) return;
-        win.addEventListener(resizeEvt, recalc, false);
-      })(document, window);
-    </script>
+  	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<meta name="referrer" content="never">
+		<title>zhibo8</title>
+  	</head>
+  	<body>
+		<div id="app-box"></div>
+		<!-- built files will be auto injected -->
+		<script>
+			(function (doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function () {
+					var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						fonSize = 20 * (clientWidth / 375);
+						docEl.style.fontSize = 20 * (clientWidth / 375) + 'px';
+					};
+				if (!doc.addEventListener) return;
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+				if (docEl.clientWidth > 750) return;
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
   </body>
 </html>

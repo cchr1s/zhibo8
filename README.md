@@ -8,6 +8,9 @@
 # install dependencies
 npm install
 
+# start mongod
+mongod --dbpath d:/files
+
 # crawler data
 node data
 

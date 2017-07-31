@@ -430,10 +430,9 @@ function filterSchedule (html) {
 var date = new Date()
 var rule = new nodeSchedule.RecurrenceRule();  
 var times = [1,31]
-rule1.minute = times
+rule.minute = times
 
-nodeSchedule.scheduleJob(rule1, function(){
-	console.log(1111)
+nodeSchedule.scheduleJob(rule, function(){
 	http.get(url, function(res){
 		var html = ''
 		res.setEncoding('utf-8');

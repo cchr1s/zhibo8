@@ -1,8 +1,16 @@
 const mongoose = require('mongoose')
 const config = require('config-lite')
+const env = process.env.NODE_ENV || 'development'
+var dburl = 'mongodb://cc_owner:cc?@127.0.0.1:/27017/zhibo8'
 
-// mongodb 连接🔗
-mongoose.connect('mongodb://localhost:27017/zhibo8')
+//kaifamoshi
+if (env = 'development') {
+	// mongodb 连接🔗
+	var dburl = 'mongodb://localhost:27017/zhibo8'
+}
+
+mongoose.connect(dburl)
+
 // 此处防止 node.js - Mongoose: mpromise 错误
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;

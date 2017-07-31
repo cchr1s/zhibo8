@@ -1,12 +1,18 @@
-# vue_mongodb
+# vue-cli
 
-> A Vue.js project
+> A Vue.js project(h5 zhibo8 app)
 
 ## Build Setup
 
 ``` bash
 # install dependencies
 npm install
+
+# crawler data
+node data
+
+# start server
+node app
 
 # serve with hot reload at localhost:8080
 npm run dev

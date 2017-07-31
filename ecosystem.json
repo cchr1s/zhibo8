@@ -1,0 +1,28 @@
+{
+	"apps": [
+		{
+			"name" : "zhibo8",
+			"script": "app.js",
+			"env" : {
+				"COMMON_VARIABLE": "true"
+			},
+			"env_production" : {
+				"NODE_ENV" : "production"
+			}
+		}
+	],
+	"deploy" : {
+		"production" :{
+			"user" : "cc",
+			"host" : ["39.108.83.121"],
+			"port" : "39999",
+			"ref" : "origin/master",
+			"repo" : "https://github.com/cchr1s/zhibo8.git",
+			"path" : "/www/website/production",
+			"ssh_options" : "StrictHostKeyChecking=no",
+			"env": {
+				"NODE_ENV": "production"
+			}
+		} 
+	}
+}

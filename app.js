@@ -25,9 +25,11 @@ app.use(function (req, res, next) {
 })
 
 app.use(express.static(path.resolve(__dirname, './dist')))
+console.log(__dirname)
 // 因为是单页应用 所有请求都走/dist/index.html
 app.get('*', function(req, res) {
     const html = fs.readFileSync(path.resolve(__dirname, './dist/index.html'), 'utf-8')
+    console.log(html)
     res.send(html)
 })
 

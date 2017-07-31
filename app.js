@@ -18,12 +18,6 @@ app.use(cookieParser());
 app.use(compression({ threshold: 0 }))
 app.use('/api', routes)
 
-app.use(function (req, res, next) {
-	var err = new Error('This page not found');
-	err.status = 404;
-	next(err)
-})
-
 app.use(express.static(path.resolve(__dirname, './dist')))
 console.log(__dirname)
 // 因为是单页应用 所有请求都走/dist/index.html

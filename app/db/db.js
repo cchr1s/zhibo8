@@ -4,7 +4,7 @@ const env = process.env.NODE_ENV || 'development'
 var dburl = 'mongodb://cc_owner:cc?@127.0.0.1:/27017/zhibo8'
 
 //kaifamoshi
-if (env = 'development') {
+if (env === 'development') {
 	// mongodb 连接🔗
 	var dburl = 'mongodb://localhost:27017/zhibo8'
 }

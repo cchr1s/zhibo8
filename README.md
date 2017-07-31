@@ -1,9 +1,9 @@
-## [在线地址](http://39.108.83.121/#/)
+#### [在线地址](http://39.108.83.121/#/)
 > pc上用chrome调试响应式预览
 
 ## vue-cli express mongodb
 
-> h5 zhibo8 app 目前支持赛程 直播间 新闻浏览
+> h5 zhibo8 app 目前支持赛程 直播间 新闻浏览 本地模拟注册登录
 
 ## Build Setup
 

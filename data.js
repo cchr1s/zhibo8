@@ -7,6 +7,7 @@ var request = require('request')
 var app = require('express')()
 var url = 'http://m.zhibo8.cc'
 var newsUrl = 'http://m.zhibo8.cc/news.htm'
+var nodeSchedule = require("node-schedule")
 
 //申明一个mongoose对象
 var HeadlineSchema = new mongoose.Schema({
@@ -282,40 +283,6 @@ function filterNews(html) {
 	return news	
 }
 
-/*//var newsContent = []
-function filterContent(html){
-	var $ = cheerio.load(html)
-	let newsContent_title = $('h1').text()
-	let newsContent_time = $('p').first().text()
-	var newsContent_img = $('.signals').find('img').attr('t-rc')
-	let newsContent_content = $('.signals').find('p').text()
-	let pageUrl = $('.nav .float_right').attr('href')
-	if(pageUrl){
-		var id = pageUrl.split('/')[pageUrl.split('/').length - 1].substring(0, pageUrl.split('/')[pageUrl.split('/').length - 1].indexOf('.'))		
-	}
-	
-	//if (newsContent_img !== undefined) {
-		//let imgFileName = newsContent_img.split('/')		
-		//downloadPic(newsContent_img, __dirname+'/static/img/'+ imgFileName[imgFileName.length-1])
-	//}
-	//	newsContent.push(newsContent_img)
-	
-	var newContent =  new NewsContent({
-		title: newsContent_title,
-		time: newsContent_time,
-		img: newsContent_img,
-		content: newsContent_content,
-		id: id,
-		tag: 2		
-	})
-
-	newContent.save(function(err){
-		if (err) {
-			console.log(err)
-		} 
-	})
-	//	return newsContent
-}*/
 
 //commonnews
 var _commonNews = []
@@ -460,105 +427,90 @@ function filterSchedule (html) {
 	return scheduleArray	
 }
 
-http.get(url, function(res){
-	var html = ''
-	res.setEncoding('utf-8');
-	res.on('data', function(data){
-		html += data
+var date = new Date()
+var rule = new nodeSchedule.RecurrenceRule();  
+var times = [1,31]
+rule1.minute = times
+
+nodeSchedule.scheduleJob(rule1, function(){
+	console.log(1111)
+	http.get(url, function(res){
+		var html = ''
+		res.setEncoding('utf-8');
+		res.on('data', function(data){
+			html += data
+		})
+
+		res.on('end', function(){
+			//delete
+			var tag = {'tag': '1'}
+			Headline.remove(tag, function(err, res){
+				if (err) {
+					console.log(err)
+				}
+			})
+			var tag = {'tag': '3'}
+			Schedule.remove(tag, function(err, res){
+				if (err) {
+					console.log(err)
+				}
+			})
+			//deleteImg()
+
+			filterNews(html)
+			//schedule
+			filterSchedule(html)													 
+		})	
+						
+	}).on('error', function(){
+		console.log("获取数据出错。。")
 	})
 
-	res.on('end', function(){
-		//delete
-		var tag = {'tag': '1'}
-		Headline.remove(tag, function(err, res){
-			if (err) {
-				console.log(err)
-			}
+	//commonnews
+	http.get(newsUrl, function(res){
+		var html = ''
+		res.setEncoding('utf-8');
+		res.on('data', function(data){
+			html += data
 		})
-		/*var tag = {'tag': '2'}
-		NewsContent.remove(tag, function(err, res){
-			if (err) {
-				console.log(err)
-			}
-		})*/
-		var tag = {'tag': '3'}
-		Schedule.remove(tag, function(err, res){
-			if (err) {
-				console.log(err)
-			}
-		})
-		//deleteImg()
 
-		filterNews(html)
-		/*var t = filterNews(html)		
-		for(let i =0; i < t.length;i++){			
-			http.get('http:' + t[i]._url, function(res){
-				var html = ''
-				res.setEncoding('utf-8');
-				res.on('data', function(data){
-					html += data
-				})
-
-				res.on('end', function(){
-					filterContent(html)										
-				})				
+		res.on('end', function(){
+			//delete
+			var tag = {'tag': '4'}
+			CommonNews.remove(tag, function(err, res){
+				if (err) {
+					console.log(err)
+				}
 			})
+			var tag = {'tag': '5'}
+			CommonNewsContent.remove(tag, function(err, res){
+				if (err) {
+					console.log(err)
+				}
+			})
+			//deleteImg()
 
-			//let imgFileName = t[i].img.split('/')		
-			//downloadPic(t[i].img, __dirname+'/static/img/'+ imgFileName[imgFileName.length-1])
-		}*/
+			var t = filterCommonNews(html)		
+			for(let i =0; i < t.length;i++){			
+				http.get('http:' + t[i]._url, function(res){
+					var html = ''
+					res.setEncoding('utf-8');
+					res.on('data', function(data){
+						html += data
+					})
 
-		//schedule
-		filterSchedule(html)													 
-	})	
-					
-}).on('error', function(){
-	console.log("获取数据出错。。")
-})
-
-//commonnews
-http.get(newsUrl, function(res){
-	var html = ''
-	res.setEncoding('utf-8');
-	res.on('data', function(data){
-		html += data
+					res.on('end', function(){
+						filterNewsContent(html)										
+					})				
+				})
+			}												 
+		})	
+						
+	}).on('error', function(){
+		console.log("获取数据出错。。")
 	})
-
-	res.on('end', function(){
-		//delete
-		var tag = {'tag': '4'}
-		CommonNews.remove(tag, function(err, res){
-			if (err) {
-				console.log(err)
-			}
-		})
-		var tag = {'tag': '5'}
-		CommonNewsContent.remove(tag, function(err, res){
-			if (err) {
-				console.log(err)
-			}
-		})
-		//deleteImg()
-
-		var t = filterCommonNews(html)		
-		for(let i =0; i < t.length;i++){			
-			http.get('http:' + t[i]._url, function(res){
-				var html = ''
-				res.setEncoding('utf-8');
-				res.on('data', function(data){
-					html += data
-				})
-
-				res.on('end', function(){
-					filterNewsContent(html)										
-				})				
-			})
-		}												 
-	})	
-					
-}).on('error', function(){
-	console.log("获取数据出错。。")
 })
+
 
 function deleteImg(path){
 	//delete news img

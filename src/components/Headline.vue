@@ -12,7 +12,7 @@
 			<h2>{{newsContent.title}}</h2>
 			<h4>{{newsContent.time}}</h4>
 			<!-- <img :src="'/static/img/'+ imgFileName" alt=""> -->
-			<img :src="newsContent.img" alt="">
+			<img v-lazy="newsContent.img" alt="">
 			<p v-for="(item, index) in newsContent.content">{{item}}。</p>			
 		</div>
 		<div class="comment">
@@ -40,7 +40,6 @@
 	import Vue from 'vue'
 	import axios from 'axios'
 	import VueLazyload from 'vue-lazyload'	
-	
 	Vue.prototype.$http = axios
 	Vue.use(VueLazyload)
 

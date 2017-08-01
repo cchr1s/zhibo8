@@ -1,9 +1,6 @@
-#### [在线地址](http://39.108.83.121/#/)
-> pc上用chrome调试响应式预览
+## a webapp with vue-cli express mongodb
 
-## vue-cli express mongodb
-
-> h5 zhibo8 app 目前支持赛程 直播间 新闻浏览 本地模拟注册登录
+> h5 zhibo8 目前支持赛程 直播间 新闻浏览 本地模拟注册登录
 
 ## Build Setup
 
@@ -12,7 +9,7 @@
 npm install
 
 # start mongod
-mongod --dbpath d:/files
+mongod --dbpath d:/xxxx
 
 # crawler data
 node data
@@ -31,3 +28,6 @@ npm run build --report
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+#### [在线地址](http://39.108.83.121/#/)
+> pc上用chrome调试响应式预览

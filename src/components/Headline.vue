@@ -19,7 +19,7 @@
 			<h4>{{commentInfo}}</h4>
 			<h3 v-if='!commentChoose'>期待您的热评</h3>
 			<div v-for="(item, index) in hotComment" class="list">
-				<img :src="item.figureurl" alt="">
+				<img v-lazy="item.figureurl" alt="">
 				<div class="zan">
 					<img src="/static/img/zan.png" alt="" class="up" @click="dianzan1(item)">
 					<span>{{item.up}}</span>
@@ -39,9 +39,10 @@
 <script>
 	import Vue from 'vue'
 	import axios from 'axios'
-	import VueViewload from 'vue-viewload'
+	import VueLazyload from 'vue-lazyload'	
+	
 	Vue.prototype.$http = axios
-	Vue.use(VueViewload)
+	Vue.use(VueLazyload)
 
 	export default{
 		name:'cc_news',

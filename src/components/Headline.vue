@@ -12,7 +12,7 @@
 			<h2>{{newsContent.title}}</h2>
 			<h4>{{newsContent.time}}</h4>
 			<!-- <img :src="'/static/img/'+ imgFileName" alt=""> -->
-			<img v-lazy="newsContent.img" alt="">
+			<img :src="newsContent.img" alt="">
 			<p v-for="(item, index) in newsContent.content">{{item}}。</p>			
 		</div>
 		<div class="comment">

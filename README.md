@@ -31,3 +31,4 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 #### [在线地址](http://39.108.83.121/#/)
 > pc上用chrome调试响应式预览
+![二维码](https://github.com/cchr1s/zhibo8/blob/master/mdimage/address.png)

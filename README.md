@@ -27,14 +27,14 @@ npm run build
 npm run build --report
 ```
 
-```
-![zhuye](https://github.com/cchr1s/zhibo8/blob/master/mdimage/index.png) 
-![zhuye1](https://github.com/cchr1s/zhibo8/blob/master/mdimage/index-news.png) 
-![zhuye2](https://github.com/cchr1s/zhibo8/blob/master/mdimage/index-all.png) 
-![news](https://github.com/cchr1s/zhibo8/blob/master/mdimage/news.png) 
-![liveroom](https://github.com/cchr1s/zhibo8/blob/master/mdimage/liveroom.png) 
-![login](https://github.com/cchr1s/zhibo8/blob/master/mdimage/login.png)
-```
+### 预览
+> ![zhuye](https://github.com/cchr1s/zhibo8/blob/master/mdimage/index.png) 
+> ![zhuye1](https://github.com/cchr1s/zhibo8/blob/master/mdimage/index-news.png) 
+> ![zhuye2](https://github.com/cchr1s/zhibo8/blob/master/mdimage/index-all.png) 
+> ![news](https://github.com/cchr1s/zhibo8/blob/master/mdimage/news.png) 
+> ![liveroom](https://github.com/cchr1s/zhibo8/blob/master/mdimage/liveroom.png) 
+> ![login](https://github.com/cchr1s/zhibo8/blob/master/mdimage/login.png)
+
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 

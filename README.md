@@ -40,4 +40,4 @@ npm run build --report
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 #### [在线地址](http://39.108.83.121/#/) pc上用chrome调试响应式预览
-> ![二维码](https://github.com/cchr1s/zhibo8/blob/master/mdimage/address.png)
+> ![二维码](https://github.com/cchr1s/zhibo8/blob/master/mdimage/address.png) 移动端地址

@@ -21,9 +21,9 @@
 			<div v-for="(item, index) in hotComment" class="list">
 				<img :src="item.figureurl" alt="">
 				<div class="zan">
-					<img src="/static/img/zan.png" alt="" class="up">
+					<img src="/static/img/zan.png" alt="" class="up" @click="dianzan1(item)">
 					<span>{{item.up}}</span>
-					<img src="/static/img/zan.png" alt="" class="down">
+					<img src="/static/img/zan.png" alt="" class="down" @click="dianzan2(item)">
 					<span>{{item.down}}</span>
 				</div>
 				<div class="detail">
@@ -117,7 +117,18 @@
 						this.commentChoose = false
 					})	
 			},
-			
+			dianzan1(item){
+				if (item.userid == 0) {
+					item.up++
+					item.userid = '1'	
+				} 
+			},
+			dianzan2(item){
+				if (item.userid == 0) {
+					item.down++
+					item.userid = '1'	
+				} 
+			},
 		},
 		watch: {
 
@@ -129,4 +140,3 @@
 	@import '../style/headline'
 </style>
 
-https://cache.zhibo8.cc/json/2017_07_20/news/zuqiu/596f8fa147ba3_hot.htm

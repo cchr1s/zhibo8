@@ -84,7 +84,7 @@ $visitcolor: #1681d4;
 						display: inline-block;
 						width: 1.4rem;
 						height: 1.4rem;
-						margin-top: -0.27rem;
+						margin-top: -0.25rem;
 						margin-left: -0.4rem;
 						z-index:10; 
 						position: relative;
@@ -129,13 +129,13 @@ $visitcolor: #1681d4;
 			.livevideo{
 				width: 5.4rem;
 				height: 1.8rem;
-				background-color: #73b4f8;
+				background-color: #aaa;
 				margin: 0.65rem auto 0;
 				border-radius: 0.2rem;
 				>span{
 					font: normal 0.8rem/1.8rem 'microsoft yahei';
 					text-align: center;
-					color: $color;
+					color: #fff;
 				}
 			}
 		}
@@ -188,7 +188,7 @@ $visitcolor: #1681d4;
 						display: inline-block;
 						width: 1.4rem;
 						height: 1.4rem;
-						margin-top: -0.27rem;
+						margin-top: -0.25rem;
 						margin-right: -0.25rem;
 						z-index:10; 
 						position: relative;
@@ -504,7 +504,8 @@ $visitcolor: #1681d4;
 						opacity: 0.5;
 						&:nth-of-type(2){
 							transform: rotate(180deg);
-							transform: scaleY(-1)
+							transform: scaleY(-1);
+							margin-top: 0.1rem;
 						}
 					}
 					span{

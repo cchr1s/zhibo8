@@ -324,14 +324,3 @@
 <style lang='scss' scoped>
 	@import '../style/index'
 </style>
-
-http://m.zhibo8.cc/json/match/102327.htm
-http://dingshi4pc.qiumibao.com/livetext/data/cache/livetext/102327/0/lit_page_2/348.htm?get=0.6949448709709958
-http://dc4pc.qiumibao.com/dc/matchs/data/2017-07-18/match_high_speed_102327.htm?get=0.7407682479075954
-http://dan.zhibo8.cc/data/2017/zuqiu/0718102327_284.htm?rand=0.03870606396836074
-http://dingshi4pc.qiumibao.com/livetext/data/cache/livetext/102327/0/page_10/350.htm?get=0.7339498112389755
-
-http://m.zhibo8.cc/json/match/102356.htm
-http://dingshi4pc.qiumibao.com/livetext/data/cache/livetext/102356/0/lit_page_2/540.htm?get=0.5617514768741116
-http://dan.zhibo8.cc/data/2017/nba/0718102356_637.htm?rand=0.24979898487869168
-http://dan.zhibo8.cc/data/2017/nba/0718102356_count.htm?rand=0.015261250537714988http://tu.qiumibao.com/uploads/day_170722/201707221313275268_thumb.jpg 

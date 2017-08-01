@@ -14,7 +14,7 @@
 				<div class="home_team">{{liveInfo.home_team}}</div>
 				<div class="support_home">
 					<span >主</span>
-					<span><img src="/static/img/zan.png" alt=""></span>
+					<span @click='support.homenum++'><img src="/static/img/zan.png" alt=""></span>
 					<span>{{support.homenum}}</span>
 				</div>
 			</div>
@@ -32,7 +32,7 @@
 				<div class="visit_team">{{liveInfo.visit_team}}</div>
 				<div class="support_visit">
 					<span>{{support.visitnum}}</span>
-					<span><img src="/static/img/zan.png" alt=""></span>
+					<span @click='support.visitnum++'><img src="/static/img/zan.png" alt=""></span>
 					<span>客</span>	
 				</div>
 			</div>			
@@ -174,9 +174,9 @@
 				<div v-for="(item, index) in hotComment" class="list">
 					<img :src="item.figureurl" alt="">
 					<div class="zan">
-						<img src="/static/img/zan.png" alt="" class="up">
+						<img src="/static/img/zan.png" alt="" class="up" @click="dianzan1(item)">
 						<span>{{item.up}}</span>
-						<img src="/static/img/zan.png" alt="" class="down">
+						<img src="/static/img/zan.png" alt="" class="down" @click="dianzan2(item)">
 						<span>{{item.down}}</span>
 					</div>
 					<div class="detail">
@@ -190,9 +190,9 @@
 				<div v-for="(item, index) in latestComment" class="list">
 					<img :src="item.figureurl" alt="">
 					<div class="zan">
-						<img src="/static/img/zan.png" alt="" class="up">
+						<img src="/static/img/zan.png" alt="" class="up" @click="dianzan1(item)">
 						<span>{{item.up}}</span>
-						<img src="/static/img/zan.png" alt="" class="down">
+						<img src="/static/img/zan.png" alt="" class="down" @click="dianzan2(item)">
 						<span>{{item.down}}</span>
 					</div>
 					<div class="detail">
@@ -289,7 +289,7 @@
 				},
 				nbaData: {},
 				gallery: [],
-				gifplay: false
+				gifplay: false,
 			}
 		},
 		created(){
@@ -610,7 +610,19 @@
 				e.target.parentNode.lastChild.setAttribute('src', item.url)
 				e.target.parentNode.firstChild.style.display = 'none'
 				e.target.style.display = 'none'
-			}
+			},
+			dianzan1(item){
+				if (item.userid == 0) {
+					item.up++
+					item.userid = '1'	
+				} 
+			},
+			dianzan2(item){
+				if (item.userid == 0) {
+					item.down++
+					item.userid = '1'	
+				} 
+			},
 		},
 		watch:{
 
@@ -621,19 +633,3 @@
 <style lang='scss' scoped>
 	@import '../style/liveroom'
 </style>
-
-http://up.qiumibao.com/count/getResult.php?jsoncallback=jQuery17202504593513219471_1500360698998&filenames=match_102346_host%2Cmatch_102346_visit&_=1500360699178
-
-https://dingshi4pc.qiumibao.com/livetext/data/cache/livetext/101110/0/lit_page_2/306.htm?get=0.20165658904032657
-
-https://dingshi4pc.qiumibao.com/livetext/data/cache/livetext/101635/0/lit_page_2/622.htm?get=0.7921778563295707
-
-https://dingshi4pc.qiumibao.com/livetext/data/cache/livetext/101563/0/lit_page_2/170.htm?get=0.8197598989360981
-
-http://cache.zhibo8.cc/json/2017/zuqiu/0722shanghaishanggangvsguangzhouhengda_hot.htm?random=0.5345555694623416
-
-https://dc4pc.qiumibao.com/dc/matchs/data/2017-07-22/match_lineup_102182.htm?get=0.43966598853101435
-
-https://dc4pc.qiumibao.com/dc/matchs/data/2017-07-22/match_team_statics_102182.htm?get=0.39952787958747793
-http://dc4pc.qiumibao.com/dc/matchs/data/2017-07-22/match_event_102182.htm?get=0.5526928354681742
-https://bifen4pc2.qiumibao.com/json/2017-07-27/103245.htm?get=0.3438707904273235

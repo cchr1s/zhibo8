@@ -70,7 +70,7 @@
 											<td class="s_time">{{$parentIndex.time}}</td>
 											<td class="s_home">
 												<div v-if = $parentIndex.homeimg>
-													<img v-view="'https:' + $parentIndex.homeimg" alt="" :onerror="errorImg01">
+													<img :src="'http:' + $parentIndex.homeimg" alt="" :onerror="errorImg01">
 												</div>
 												<div>
 													{{$parentIndex.home}}
@@ -82,7 +82,7 @@
 											</td>
 											<td class="s_road">
 												<div v-if = $parentIndex.roadimg>
-													<img v-view="'https:' + $parentIndex.roadimg" alt="" :onerror="errorImg02">
+													<img :src="'http:' + $parentIndex.roadimg" alt="" :onerror="errorImg02">
 												</div>
 												<div>
 													{{$parentIndex.road}}
@@ -194,11 +194,11 @@
 				 * console.log(document.body.offsetHeight+' 文档高度')
 				 */
 				
-				if(document.body.scrollTop + window.innerHeight >= document.body.offsetHeight - 10) { 
+				if(document.body.scrollTop + window.innerHeight >= document.body.offsetHeight - 60) { 
 					this.fetchSchedule(scheduleItem)
 					this.fetchCommonNews(newsItem)
 					scheduleItem ++
-					newsItem += 5
+					newsItem ++
 				}
 			}, false)
 	

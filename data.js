@@ -436,7 +436,7 @@ var rule = new nodeSchedule.RecurrenceRule();
 var times = [1,31]
 rule.minute = times
 
-//nodeSchedule.scheduleJob(rule, function(){
+nodeSchedule.scheduleJob(rule, function(){
 	http.get(url, function(res){
 		var html = ''
 		res.setEncoding('utf-8');
@@ -512,7 +512,7 @@ rule.minute = times
 	}).on('error', function(){
 		console.log("获取数据出错。。")
 	})
-//})
+})
 
 
 function deleteImg(path){

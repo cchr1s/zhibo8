@@ -72,9 +72,8 @@
 				let contentId = this.$router.currentRoute.fullPath.split('/')[4]
 				let classes =  this.$router.currentRoute.fullPath.split('/')[2]
 				let newsTime = this.$router.currentRoute.fullPath.split('/')[3]	
-				this.$http.get('/api/commonNewsContent')
-					.then(res =>{
-						//console.dir(res.data)						
+				this.$http.get('/api/commonNewsContent/'+contentId)
+					.then(res =>{					
 						for (let i = 0; i < res.data.length; i++){
 							if(res.data[i].id === contentId){
 								this.newsContent.title = res.data[i].title

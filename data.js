@@ -107,6 +107,7 @@ NewsContentSchema.statics = {
 
 //commonnews
 var CommonNewsSchema = new mongoose.Schema({
+	fetchId: String,
 	img: String,
 	title: String,
 	url: String,
@@ -195,7 +196,7 @@ var ScheduleSchema = new mongoose.Schema({
 	schedule_time: String,
 	content: [],
 	tag: Number,
-	target: Number,
+	id: String,
 	date: { 
 		type: Date, 
 		default: Date.now 
@@ -286,10 +287,12 @@ function filterNews(html) {
 
 //commonnews
 var _commonNews = []
+var fetchId = 0
 function filterCommonNews(html) {
 	var $ = cheerio.load(html)
 	var headlines = $('.module .content .list .ent .lite')	
 	headlines.each(function(item, element) {
+		fetchId += 1
 		let type = $(this).attr('type')
 		let headline_url = $(this).find('h2').find('a').attr('href')
 		let headline_img = $(this).find('.icon_video').find('a').find('img').attr('src')
@@ -314,6 +317,7 @@ function filterCommonNews(html) {
 
 		if (id !== '' && _headline_url !== '') {
 			var commonNews =  new CommonNews({
+				fetchId: fetchId + 'cc',
 				classes: type,
 				img: headline_img,
 				url: _headline_url,
@@ -364,14 +368,14 @@ function filterNewsContent(html){
 	//	return newsContent
 }
 
-var target = 0 
+var id = 0 
 function filterSchedule (html) {
 	var $ = cheerio.load(html)
 	let contents = $('.saishi').nextAll()
 	
 	var scheduleArray = []
 	contents.each(function(item, element){
-		target += 1
+		id += 1
 		let schedule_time = $(this).find('.head>h2').text()
 		let content = $(this).find('.content .list .ent .lite')
 		let scheduleData = {
@@ -413,7 +417,7 @@ function filterSchedule (html) {
 			schedule_time : scheduleData.schedule_time,
 			content : scheduleData.content,
 			tag: 3,
-			target: 11
+			id: id+'cc'
 		})
 
 		schedule.save(function(err){
@@ -432,7 +436,7 @@ var rule = new nodeSchedule.RecurrenceRule();
 var times = [1,31]
 rule.minute = times
 
-nodeSchedule.scheduleJob(rule, function(){
+//nodeSchedule.scheduleJob(rule, function(){
 	http.get(url, function(res){
 		var html = ''
 		res.setEncoding('utf-8');
@@ -508,7 +512,7 @@ nodeSchedule.scheduleJob(rule, function(){
 	}).on('error', function(){
 		console.log("获取数据出错。。")
 	})
-})
+//})
 
 
 function deleteImg(path){

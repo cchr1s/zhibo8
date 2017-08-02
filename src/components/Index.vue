@@ -173,24 +173,34 @@
 				this.islogin = true
 			}
 
-			/*window.addEventListener('scroll', () => {
-				*
+			//initialize diaplay schedule 3 items
+			var item = [1, 2, 3]
+			for (let i = 0; i < item.length; i++){
+				this.fetchSchedule(item[i])
+			}
+
+			//initialize diaplay news 20 items
+			for(let j = 0; j < 20;j++){
+				this.fetchCommonNews(j)
+			}
+
+			var scheduleItem = 4
+			var newsItem = 20
+			window.addEventListener('scroll', () => {
+				/**
 				 * console.log(document.documentElement.clientHeight)
 				 * console.log(window.innerHeight)
 				 * console.log(document.body.scrollTop + ' 滚动高度')
 				 * console.log(document.body.offsetHeight+' 文档高度')
-				 
-					
+				 */
+				
 				if(document.body.scrollTop + window.innerHeight >= document.body.offsetHeight - 10) { 
-					a.splice(0, 1)
-					if (a[0].schedule_time) {
-						this.schedule.time.push(a[0].schedule_time)
-						this.schedule.content.push(a[0].content)
-					}
-
-					this.chooseImportant()	
+					this.fetchSchedule(scheduleItem)
+					this.fetchCommonNews(newsItem)
+					scheduleItem ++
+					newsItem += 5
 				}
-			})*/
+			}, false)
 	
 		},		
 		methods:{
@@ -215,10 +225,20 @@
 						this.news = randomNewsDisplay(this.news, 4)
 
 					}).catch(res=>{
-						alert('error1')
+						alert('获取数据出错。。')
+					})									
+			},
+			fetchCommonNews(fetchId){
+				this.$http.get('/api/commonNews/'+fetchId+'cc').then(res => {
+						if (res.data[0]) {
+							this.commonNews.push(res.data[0])
+						}
+					}).catch(err => {
+						console.log(err)
 					})
-
-				this.$http.get('/api/schedule')
+			},
+			fetchSchedule(fetchId){
+				this.$http.get('/api/schedule/'+ fetchId+'cc')
 					.then(res =>{
 						for(let i = 0; i< res.data.length;i++){
 							if(res.data[i].schedule_time){
@@ -231,12 +251,6 @@
 					}).catch(err=>{
 						console.log(err)
 					})
-				
-				this.$http.get('/api/commonNews').then(res => {
-					this.commonNews = res.data
-				}).catch(err => {
-					console.log(err)
-				})									
 			},
 			toggleCate(key){
 				for (let item in this.category){

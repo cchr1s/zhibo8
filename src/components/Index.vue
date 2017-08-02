@@ -297,17 +297,18 @@
 				this.$http.get('http://bifen4m.qiumibao.com/json/list.htm')
 					.then(res => {
 						//console.log(res.data)
-						for(let k = 0; k < this.schedule.content[0].length; k++){
-							var url = this.schedule.content[0][k].url.substring(13)
-							for(let i = 0; i < res.data.list.length; i++){
-								if (url === res.data.list[i].url) {
-									this.schedule.content[0][k].name = res.data.list[i].home_score + ' - ' +res.data.list[i].visit_score
-									this.schedule.content[0][k].remind = res.data.list[i].period_cn
+						if(this.schedule.content[0]){
+							for(let k = 0; k < this.schedule.content[0].length; k++){
+								var url = this.schedule.content[0][k].url.substring(13)
+								for(let i = 0; i < res.data.list.length; i++){
+									if (url === res.data.list[i].url) {
+										this.schedule.content[0][k].name = res.data.list[i].home_score + ' - ' +res.data.list[i].visit_score
+										this.schedule.content[0][k].remind = res.data.list[i].period_cn
+									}
 								}
+
 							}
-
 						}
-
 					}).catch(err=>{
 						console.log(err)
 					})

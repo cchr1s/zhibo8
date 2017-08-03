@@ -14,7 +14,6 @@ var HeadlineSchema = new mongoose.Schema({
 	img: String,
 	title: String,
 	url: String,
-	tag: Number,
 	contentId: String,
 	classes: String,
 	newsTime: String,
@@ -62,7 +61,6 @@ var NewsContentSchema = new mongoose.Schema({
 	title: String,
 	time: String,
 	content: String,
-	tag: Number,
 	id: String,
 	classes: String,
 	newsTime: String,
@@ -111,7 +109,6 @@ var CommonNewsSchema = new mongoose.Schema({
 	img: String,
 	title: String,
 	url: String,
-	tag: Number,
 	contentId: String,
 	newsTime: String,
 	classes: String,
@@ -148,7 +145,6 @@ var CommonNewsContentSchema = new mongoose.Schema({
 	title: String,
 	time: String,
 	content: String,
-	tag: Number,
 	id: String,
 /*	classes: String,
 	newsTime: String,*/
@@ -195,7 +191,6 @@ CommonNewsContentSchema.statics = {
 var ScheduleSchema = new mongoose.Schema({
 	schedule_time: String,
 	content: [],
-	tag: Number,
 	id: String,
 	date: { 
 		type: Date, 
@@ -269,7 +264,6 @@ function filterNews(html) {
 				contentId: _id,
 				classes: classes,
 				newsTime: newsTime,
-				tag: 1,
 			})
 
 			headline.save(function(err){
@@ -287,8 +281,8 @@ function filterNews(html) {
 
 //commonnews
 var _commonNews = []
-var fetchId = 0
 function filterCommonNews(html) {
+	var fetchId = 0
 	var $ = cheerio.load(html)
 	var headlines = $('.module .content .list .ent .lite')	
 	headlines.each(function(item, element) {
@@ -325,7 +319,6 @@ function filterCommonNews(html) {
 				createTime: createTime,
 				contentId: _id,
 				newsTime: newsTime,
-				tag: 4,
 			})
 
 			commonNews.save(function(err){
@@ -356,8 +349,7 @@ function filterNewsContent(html){
 		time: newsContent_time,
 		img: newsContent_img,
 		content: newsContent_content,
-		id: id,
-		tag: 5		
+		id: id,		
 	})
 
 	commonNewsContent.save(function(err){
@@ -368,8 +360,9 @@ function filterNewsContent(html){
 	//	return newsContent
 }
 
-var id = 0 
+
 function filterSchedule (html) {
+	var id = 0 	
 	var $ = cheerio.load(html)
 	let contents = $('.saishi').nextAll()
 	
@@ -416,7 +409,6 @@ function filterSchedule (html) {
 		var schedule =  new Schedule({
 			schedule_time : scheduleData.schedule_time,
 			content : scheduleData.content,
-			tag: 3,
 			id: id+'cc'
 		})
 
@@ -446,14 +438,12 @@ nodeSchedule.scheduleJob(rule, function(){
 
 		res.on('end', function(){
 			//delete
-			var tag = {'tag': '1'}
-			Headline.remove(tag, function(err, res){
+			Headline.remove({}, function(err, res){
 				if (err) {
 					console.log(err)
 				}
 			})
-			var tag = {'tag': '3'}
-			Schedule.remove(tag, function(err, res){
+			Schedule.remove({}, function(err, res){
 				if (err) {
 					console.log(err)
 				}
@@ -479,14 +469,12 @@ nodeSchedule.scheduleJob(rule, function(){
 
 		res.on('end', function(){
 			//delete
-			var tag = {'tag': '4'}
-			CommonNews.remove(tag, function(err, res){
+			CommonNews.remove({}, function(err, res){
 				if (err) {
 					console.log(err)
 				}
 			})
-			var tag = {'tag': '5'}
-			CommonNewsContent.remove(tag, function(err, res){
+			CommonNewsContent.remove({}, function(err, res){
 				if (err) {
 					console.log(err)
 				}

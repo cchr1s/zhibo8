@@ -174,7 +174,7 @@
 			}
 
 			//initialize diaplay schedule 3 items
-			var item = [1, 2, 3]
+			var item = [1, 2, 3, 4]
 			for (let i = 0; i < item.length; i++){
 				this.fetchSchedule(item[i])
 			}
@@ -184,7 +184,7 @@
 				this.fetchCommonNews(j)
 			}
 
-			var scheduleItem = 4
+			var scheduleItem = 5
 			var newsItem = 20
 			window.addEventListener('scroll', () => {
 				/**

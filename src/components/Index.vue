@@ -28,7 +28,7 @@
 					<ul>
 						<li class="news_lite" v-for="(item, index) in commonNews" :type="item.classes=='nba'?'basketball':'football'" ref="lite">
 							<a @click="$router.push({name:'headline', params:{classes: item.classes,newsTime: item.newsTime, contentId:item.contentId}})">
-								<img v-view="item.img" alt="">
+								<img v-lazy="item.img" alt="">
 								<div>{{item.title}}</div>
 								<div>{{item.createTime}}</div>
 							</a>
@@ -108,11 +108,11 @@
 	import Vue from 'vue'
 	import axios from 'axios'
 	import Vuex from 'vuex';
-	import VueViewload from 'vue-viewload'
+	import VueLazyload from 'vue-lazyload'
 	import {mapState} from 'vuex';
 	import * as types from '../store/types'
 	import api from '../router/axios'
-	Vue.use(VueViewload)
+	Vue.use(VueLazyload)
 	Vue.use(Vuex);
 	Vue.prototype.$http = axios
 

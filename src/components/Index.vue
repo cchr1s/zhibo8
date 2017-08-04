@@ -174,9 +174,11 @@
 			}
 
 			//initialize diaplay schedule 3 items
-			var item = [1, 2, 3, 4]
+			var item = [1, 2, 3, 4]			
 			for (let i = 0; i < item.length; i++){
-				this.fetchSchedule(item[i])
+				setTimeout(()=> {
+					this.fetchSchedule(item[i])
+				}, 200)				
 			}
 
 			//initialize diaplay news 20 items

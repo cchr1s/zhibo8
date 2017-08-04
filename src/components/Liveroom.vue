@@ -314,7 +314,6 @@
 				if (/^[0-9]{6}$/.test(matchId) || /^[0-9]{5}$/.test(matchId)) {
 					this.$http.get('http://m.zhibo8.cc/json/match/'+ matchId +'.htm')
 						.then(res => {
-							console.log(res.data)
 							let type = res.data.type
 							let id = res.data.zhibo_url.split('/')[res.data.zhibo_url.split('/').length-1].substring(0, res.data.zhibo_url.split('/')[res.data.zhibo_url.split('/').length - 1].indexOf('.'))
 							let time = res.data.zhibo_url.split('/')[3]
@@ -359,10 +358,21 @@
 							shoufaAndData(type, match_date, matchId)
 							comment(time, type, id)
 							gallery(gallery_url, match_date, matchId)
+							updateSocre(match_date, matchId)
 							
 						}).catch(err => {
 							console.log(err)
 						})
+
+					var updateSocre = (match_date, matchId) => {
+						this.$http.get('http://bifen4pc.qiumibao.com/json/'+match_date+'/'+matchId+'.htm?'+Math.random()).then(res => {
+							this.matchData = {
+								home_score: res.data.home_score,
+								visit_score: res.data.visit_score,
+								pid_text : res.data.period_cn
+							}
+						})
+					} 
 
 					var shoufaAndData = (type, match_date, matchId) => {
 						//shoufa-shuju
@@ -389,6 +399,7 @@
 							
 							this.$http.get('https://dc4pc.qiumibao.com/dc/matchs/data/'+match_date+'/match_team_statics_'+matchId+'.htm?'+Math.random())
 								.then( res =>{
+									console.log(res.data)
 									this.totalData.data.home = res.data.data[home_visit_id[0]]
 									this.totalData.data.visit = res.data.data[home_visit_id[1]]
 									//compute the rate

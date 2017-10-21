@@ -1,12 +1,13 @@
 var http = require('http')
+var https = require('https')
 var cheerio = require('cheerio')
 var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/zhibo8')
 var fs = require('fs')
 var request = require('request')
 var app = require('express')()
-var url = 'http://m.zhibo8.cc'
-var newsUrl = 'http://m.zhibo8.cc/news.htm'
+var url = 'https://m.zhibo8.cc'
+var newsUrl = 'https://m.zhibo8.cc/news.htm'
 var nodeSchedule = require("node-schedule")
 
 //申明一个mongoose对象
@@ -425,11 +426,11 @@ function filterSchedule (html) {
 
 var date = new Date()
 var rule = new nodeSchedule.RecurrenceRule();  
-var times = [1,31]
+var times = [1]
 rule.minute = times
 
 nodeSchedule.scheduleJob(rule, function(){
-	http.get(url, function(res){
+	https.get(url, function(res){
 		var html = ''
 		res.setEncoding('utf-8');
 		res.on('data', function(data){
@@ -460,7 +461,7 @@ nodeSchedule.scheduleJob(rule, function(){
 	})
 
 	//commonnews
-	http.get(newsUrl, function(res){
+	https.get(newsUrl, function(res){
 		var html = ''
 		res.setEncoding('utf-8');
 		res.on('data', function(data){
@@ -483,7 +484,7 @@ nodeSchedule.scheduleJob(rule, function(){
 
 			var t = filterCommonNews(html)		
 			for(let i =0; i < t.length;i++){			
-				http.get('http:' + t[i]._url, function(res){
+				https.get('https:' + t[i]._url, function(res){
 					var html = ''
 					res.setEncoding('utf-8');
 					res.on('data', function(data){
